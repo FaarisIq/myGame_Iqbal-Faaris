@@ -1,7 +1,7 @@
 # This file was created by: Faaris Iqbal
 # Content from Chris Bradfield; Kids Can Code
 # KidsCanCode - Game Development with Pygame video series
-# Video link: https://youtu.be/OmlQ0XCvIn0 
+# Video link: https://youtu.be/OmlQ0XCvIn0
 
 # Import necessary libraries and modules
 import pygame as pg
@@ -12,7 +12,6 @@ import os
 from settings import *
 from sprites import *
 import math
-
 
 '''
 Design Goals:
@@ -83,12 +82,14 @@ class Game:
             self.all_mobs.add(m2)
 
         self.run()
+
     def draw_text(self, text, size, color, x, y):
         # Draw text on the screen
         font = pg.font.Font(None, size)
         text_surface = font.render(text, True, color)
         text_rect = text_surface.get_rect(center=(x, y))
         self.screen.blit(text_surface, text_rect)
+
     def run(self):
         # Game loop
         self.playing = True
@@ -114,15 +115,16 @@ class Game:
         # Display win screen
         elapsed_time = (pg.time.get_ticks() - self.start_time) // 1000
         if self.p1_won:
-            self.draw_text(f"Player 1 has won! Survived for {elapsed_time}s", 20, WHITE, WIDTH // 2 - 100, HEIGHT // 2)
+            self.draw_text(f"Player 1 has won! Survived for {elapsed_time}s", 20, WHITE, WIDTH // 2 - 15, HEIGHT // 2)
         elif self.p2_won:
-            self.draw_text(f"Player 2 has won! Survived for {elapsed_time}s", 20, WHITE, WIDTH // 2 - 100, HEIGHT // 2)
+            self.draw_text(f"Player 2 has won! Survived for {elapsed_time}s", 20, WHITE, WIDTH // 2 - 15, HEIGHT // 2)
 
         pg.display.flip()
         pg.time.wait(5000)  # Wait for 5 seconds
 
         # Quit pygame
         pg.quit()
+
     def update(self):
         # Update all sprites
         self.all_sprites.update()
@@ -149,15 +151,7 @@ class Game:
         self.draw_text(f"Time: {elapsed_time}s", 30, WHITE, WIDTH // 2 - 43, 10)
         self.all_sprites.draw(self.screen)
 
-
         pg.display.flip()
-
-    def draw_text(self, text, size, color, x, y):
-        # Draw text on the screen
-        font = pg.font.Font(None, size)
-        text_surface = font.render(text, True, color)
-        text_rect = text_surface.get_rect(topleft=(x, y))
-        self.screen.blit(text_surface, text_rect)
 
     def events(self):
         # Handle game events
@@ -181,7 +175,6 @@ gamerun = True
 g = Game()
 while gamerun:
     g.new()
-
 
 # Quit pygame
 pg.quit()

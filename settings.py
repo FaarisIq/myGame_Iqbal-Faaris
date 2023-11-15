@@ -21,7 +21,7 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 DARKGREEN = (38, 69, 11)
 
-
+# add platforms
 PLATFORM_LIST = [(WIDTH / 2 - 50, HEIGHT * 3 / 4, 100, 20,"moving"),
                  (125, HEIGHT - 300, 100, 20, "moving"),
                  (250, 250, 100, 20, "moving"),
